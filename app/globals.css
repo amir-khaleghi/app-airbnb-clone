@@ -57,3 +57,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ■■■■■■■■■■ Framer Motion ■■■■■■■■■ */
+.parent[data-isopen='true'] {
+  width: 150px;
+  height: 40px;
+}
+
+.child {
+  width: 1px;
+  height: 1px;
+  background: #f107a3;
+  border-radius: 50%;
+}
