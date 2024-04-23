@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const FooterCreateHome = () => {
   return (
-    <nav className=" border-t fixed bottom-0 w-full flex flex-col ">
+    <nav className=" border-t fixed bottom-0 bg-white left-0 w-full flex flex-col ">
       <div className="flex justify-between items-center sm:px-12 px-4 py-4 ">
         <Button
           className="underline underline-offset-4 text-lg"

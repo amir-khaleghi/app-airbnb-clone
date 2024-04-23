@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 
 import '@/app/globals.css';
 import NavbarCreateHome from '@/app/components/NavbarCreateHome';
-import FooterCreateHome from '@/app/components/FooterCreateHome';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -21,7 +20,6 @@ export default function RootLayout({
       <body className={`${inter.className}font-circular `}>
         <NavbarCreateHome />
         {children}
-        <FooterCreateHome />
       </body>
     </html>
   );

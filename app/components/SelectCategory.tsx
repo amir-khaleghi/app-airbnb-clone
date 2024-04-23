@@ -7,14 +7,17 @@ import { useState } from 'react';
 const SelectCategory = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const handleSelect = (name) => {
-    setSelectedCategory(name);
-  };
-
   // ─── Return ──────────────────────────────────────────────
 
   return (
     <div className="flex flex-wrap justify-center items-center  py-8 max-w-[600px] gap-2 ">
+      <input
+        type="hidden"
+        name="categoryName"
+        value={selectedCategory as string}
+      />
+
+      {/* render categories */}
       {categoryItems.map((item) => {
         return (
           <Card
@@ -22,7 +25,7 @@ const SelectCategory = () => {
               selectedCategory === item.name ? 'bg-zinc-100 border-black' : ''
             }`}
             key={item.id}
-            onClick={() => handleSelect(item.name)}
+            onClick={() => setSelectedCategory(item.name)}
           >
             <CardHeader>
               <Image

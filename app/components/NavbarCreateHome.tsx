@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import { TbBrandAirbnb } from 'react-icons/tb';
 
 const NavbarCreateHome = () => {
@@ -8,9 +9,9 @@ const NavbarCreateHome = () => {
     <nav className=" border-b w-full flex flex-col ">
       <div className="flex items-center justify-between px-10 h-20">
         {/* Logo */}
-        <div>
+        <Link href="/">
           <TbBrandAirbnb className="text-black text-4xl" />
-        </div>
+        </Link>
         <div className="flex gap-4">
           <Button
             className="rounded-3xl hover:border-black"
