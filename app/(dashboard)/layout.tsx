@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import '@/app/globals.css';
 import Navbar from '../components/Navbar';
 import FilterItems from '../components/FilterItems';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}font-circular `}>
         <Navbar />
-        <FilterItems />
+        <Suspense>
+          <FilterItems />
+        </Suspense>
         {children}
       </body>
     </html>

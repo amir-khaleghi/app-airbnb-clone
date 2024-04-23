@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import useQueryString from '@/hooks/useQueryString';
-import { Suspense } from 'react';
 
 // ─── Comp ─────────────────────────────────────────── 🟩 ─
 
@@ -24,27 +23,25 @@ const FilterItem = ({ item }) => {
   // ─── Return ──────────────────────────────────────────────
 
   return (
-    <Suspense>
-      <Link
-        href={pathname + '?' + createQueryString('filter', item.name)}
-        key={item.id}
-        className={cn(
-          isActive
-            ? '  border-b-2 font-semibold border-black pb-2 '
-            : 'opacity-70 hover:border-b-2 pb-2 '
-        )}
-      >
-        <div className="flex w-18 gap-4 text-xs flex-col items-center justify-center  pb-2  ">
-          <Image
-            src={item.imageUrl}
-            width={24}
-            height={24}
-            alt={item.description}
-          />
-          <div className="text-center  whitespace-no-wrap ">{item.title}</div>
-        </div>
-      </Link>
-    </Suspense>
+    <Link
+      href={pathname + '?' + createQueryString('filter', item.name)}
+      key={item.id}
+      className={cn(
+        isActive
+          ? '  border-b-2 font-semibold border-black pb-2 '
+          : 'opacity-70 hover:border-b-2 pb-2 '
+      )}
+    >
+      <div className="flex w-18 gap-4 text-xs flex-col items-center justify-center  pb-2  ">
+        <Image
+          src={item.imageUrl}
+          width={24}
+          height={24}
+          alt={item.description}
+        />
+        <div className="text-center  whitespace-no-wrap ">{item.title}</div>
+      </div>
+    </Link>
   );
 };
 export default FilterItem;
