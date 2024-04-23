@@ -4,6 +4,8 @@ import SearchBox from './SearchBox';
 import { TbBrandAirbnb } from 'react-icons/tb';
 
 const Navbar = () => {
+  // ─── Return ──────────────────────────────────────────────
+
   return (
     <nav className=" border-b w-full flex flex-col ">
       <div className="flex items-center justify-between px-10 h-20">

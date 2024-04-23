@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: '',
+        hostname: 'a0.muscache.com',
       },
     ],
   },

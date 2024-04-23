@@ -10,6 +10,6 @@ export const searchItems = [
 /* Navigation Items ------------------------ */
 export const navigationItems = [
   { id: 1, text: 'Stays', href: '/' },
-  { id: 2, text: 'Experiences', href: '/' },
-  { id: 3, text: 'Online Experiences', href: '/' },
+  { id: 2, text: 'Experiences', href: '/experiences' },
+  { id: 3, text: 'Online Experiences', href: '/online-experiences' },
 ];

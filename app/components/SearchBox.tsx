@@ -35,7 +35,7 @@ const SearchBox = () => {
       {/* bottom section */}
       <div
         ref={boxRef}
-        className={`flex items-center border rounded-full  mb-4 gap-2 h-fit ${
+        className={`flex items-center border rounded-full shadow-lg mb-4 gap-2 h-fit ${
           activeId && 'bg-zinc-100'
         }`}
       >

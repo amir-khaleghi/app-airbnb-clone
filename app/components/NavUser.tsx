@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Menu } from 'lucide-react';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import Link from 'next/link';
 
 const NavUser = async () => {
   /* Get Session -------------------- */
@@ -38,29 +39,98 @@ const NavUser = async () => {
           />
         </div>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent
         align="end"
         className="w-60 "
       >
         {user ? (
-          <DropdownMenuItem>
-            <LogoutLink>Log out</LogoutLink>
-          </DropdownMenuItem>
+          <>
+            <DropdownMenuItem>
+              <Link
+                className="w-full"
+                href="/messages"
+              >
+                Messages
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link
+                className="w-full"
+                href="/notifications"
+              >
+                Notifications
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link
+                className="w-full"
+                href="/trips"
+              >
+                Trips
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link
+                className="w-full"
+                href="/whishlists"
+              >
+                Whishlists
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+
+            <DropdownMenuItem>
+              <Link
+                className="w-full"
+                href={`/create-home/${user.id}/structure`}
+              >
+                Airbnb your home
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link
+                className="w-full"
+                href="/account"
+              >
+                Account
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Link
+                className="w-full"
+                href="/gift-cards"
+              >
+                Gift cards
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link
+                className="w-full"
+                href="/help-center"
+              >
+                Help center
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <LogoutLink className="w-full">Log out</LogoutLink>
+            </DropdownMenuItem>
+          </>
         ) : (
           <>
             <DropdownMenuItem className="font-semibold">
-              <RegisterLink>Sign up</RegisterLink>
+              <RegisterLink className="w-full">Sign up</RegisterLink>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <LoginLink>Log in</LoginLink>
+              <LoginLink className="w-full">Log in</LoginLink>
             </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Gift cards</DropdownMenuItem>
+            <DropdownMenuItem>Airbnb your home</DropdownMenuItem>
+            <DropdownMenuItem>Help center</DropdownMenuItem>
           </>
         )}
-
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>Gift cards</DropdownMenuItem>
-        <DropdownMenuItem>Airbnb your home</DropdownMenuItem>
-        <DropdownMenuItem>Help center</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

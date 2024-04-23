@@ -70,3 +70,14 @@
   background: #f107a3;
   border-radius: 50%;
 }
+
+/* No Scroll ------------------------ */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

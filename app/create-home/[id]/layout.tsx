@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
-import Navbar from './components/Navbar';
 
+import '@/app/globals.css';
+import NavbarCreateHome from '@/app/components/NavbarCreateHome';
+import FooterCreateHome from '@/app/components/FooterCreateHome';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -18,8 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}font-circular `}>
-        <Navbar />
+        <NavbarCreateHome />
         {children}
+        <FooterCreateHome />
       </body>
     </html>
   );
