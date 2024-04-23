@@ -1,6 +1,4 @@
-export const config = {
-  runtime: 'server', // Set runtime to 'server' to prevent prerendering
-};
+export const runtime = 'server';
 
 import db from '@/lib/db';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
