@@ -34,7 +34,9 @@ export async function GET() {
       });
     }
 
-    return NextResponse.redirect('https://app-airbnb-clone-mh6c.vercel.app');
+    return NextResponse.redirect(
+      'https://app-airbnb-clone-amirdev.vercel.app/'
+    );
   } catch (error) {
     console.log(error);
   }
