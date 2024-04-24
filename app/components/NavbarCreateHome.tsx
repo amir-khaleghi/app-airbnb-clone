@@ -6,7 +6,7 @@ const NavbarCreateHome = () => {
   // ─── Return ──────────────────────────────────────────────
 
   return (
-    <nav className=" border-b w-full flex flex-col ">
+    <nav className=" border-b w-full fixed top-0 flex flex-col bg-white">
       <div className="flex items-center justify-between px-10 h-20">
         {/* Logo */}
         <Link href="/">

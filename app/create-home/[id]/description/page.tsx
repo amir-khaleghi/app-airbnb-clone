@@ -10,7 +10,7 @@ const Description = ({ params }: { params: { id: string } }) => {
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className=" flex flex-col items-center min-h-screen justify-start py-20"
+      className=" flex flex-col items-center min-h-screen justify-start py-32"
     >
       <h1 className="text-3xl font-semibold  transition-colors tracking-tight text-center">
         Write a description?
