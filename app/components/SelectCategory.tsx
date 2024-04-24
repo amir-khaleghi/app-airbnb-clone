@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const SelectCategory = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
-    null
+    undefined
   );
 
   // ─── Return ──────────────────────────────────────────────
