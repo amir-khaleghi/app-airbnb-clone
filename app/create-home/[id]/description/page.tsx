@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const Description = ({ params }: { params: { id: string } }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className=" flex flex-col items-center min-h-screen justify-start py-32"
