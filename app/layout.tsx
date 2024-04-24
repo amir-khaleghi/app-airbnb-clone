@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import '@/app/globals.css';
-import Navbar from '../components/Navbar';
-import FilterItems from '../components/FilterItems';
+import './globals.css';
+import Navbar from './components/Navbar';
+import FilterItems from './components/FilterItems';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}font-circular `}>{children}</body>
+      <body className={`${inter.className}font-circular `}>
+        <Navbar />
+        <Suspense>
+          <FilterItems />
+        </Suspense>
+        {children}
+      </body>
     </html>
   );
 }
