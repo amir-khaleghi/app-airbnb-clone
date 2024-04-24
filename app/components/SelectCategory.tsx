@@ -5,7 +5,9 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const SelectCategory = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
+    null
+  );
 
   // ─── Return ──────────────────────────────────────────────
 
