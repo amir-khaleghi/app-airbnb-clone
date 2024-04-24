@@ -11,7 +11,7 @@ export async function GET() {
     const user = await getUser();
 
     if (!user || user === null || !user.id) {
-      NextResponse.json({ error: 'Invalid user' });
+      return NextResponse.json({ error: 'Invalid user' }, { status: 400 });
       // throw new Error('There is no such user!!');
     }
 
