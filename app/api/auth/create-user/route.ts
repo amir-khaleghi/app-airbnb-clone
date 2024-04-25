@@ -29,5 +29,5 @@ export async function GET() {
     });
   }
 
-  return NextResponse.redirect('https://airbnb-clone.liara.run');
+  return NextResponse.redirect('https://app-airbnb-clone-amirdev.vercel.app/');
 }
