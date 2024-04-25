@@ -52,6 +52,9 @@ const NavUser = async () => {
       >
         {user ? (
           <>
+            <DropdownMenuItem>Hi {user.given_name} ! 🖐</DropdownMenuItem>
+            <DropdownMenuSeparator />
+
             <DropdownMenuItem>
               <Link
                 className="w-full"
