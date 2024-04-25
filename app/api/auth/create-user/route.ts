@@ -1,13 +1,13 @@
 import db from '@/lib/db';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-export default async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
   if (!user || user === null || !user.id) {
-    return res.status(400).json({ error: 'Invalid user' });
+    return NextResponse.json({ error: 'Invalid user' }, { status: 400 });
   }
 
   let dbUser = await db.user.findUnique({
@@ -27,5 +27,5 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
     });
   }
 
-  return res.redirect('https://airbnb-clone.liara.run');
+  return NextResponse.redirect('https://airbnb-clone.liara.run');
 }
