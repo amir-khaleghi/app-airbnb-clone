@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { Plus } from 'lucide-react';
+import { Minus, Plus } from 'lucide-react';
 import { useState } from 'react';
 
 const Counter = () => {
@@ -18,12 +18,20 @@ const Counter = () => {
   // ─────────────────────────────────────────────────────────
 
   return (
-    <div className="flex items-center gap-4">
-      <Button onClick={handleIncrease}>
-        <Plus />
+    <div className="flex items-center gap-4 p-2">
+      <Button
+        size="icon"
+        variant="outline"
+        onClick={handleDecrease}
+      >
+        <Minus />
       </Button>
       <p>{amount}</p>
-      <Button onClick={handleDecrease}>
+      <Button
+        size="icon"
+        variant="outline"
+        onClick={handleIncrease}
+      >
         <Plus />
       </Button>
     </div>

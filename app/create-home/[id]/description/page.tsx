@@ -1,5 +1,7 @@
 'use client';
+import Counter from '@/app/components/Counter';
 import FooterCreateHome from '@/app/components/FooterCreateHome';
+import { Textarea } from '@/components/ui/textarea';
 import { createCategoryPage } from '@/lib/actions';
 import { motion } from 'framer-motion';
 
@@ -19,6 +21,10 @@ const Description = ({ params }: { params: { id: string } }) => {
           type="hidden"
           name="homeId"
           value={params.id}
+        />
+        <Textarea
+          className="w-80 my-4 border-2 min-h-40 "
+          placeholder="write here..."
         />
 
         <FooterCreateHome />
