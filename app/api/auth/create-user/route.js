@@ -1,5 +1,6 @@
 import db from '@/lib/db';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { error } from 'console';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
@@ -7,6 +8,7 @@ export async function GET() {
   const user = await getUser();
 
   if (!user || user === null || !user.id) {
+    console.error(error);
     return NextResponse.json({ error: 'Invalid user' }, { status: 400 });
   }
 
