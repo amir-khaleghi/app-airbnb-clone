@@ -12,7 +12,7 @@ const SearchBox = () => {
   const [activeId, setActiveId] = useState('');
   const boxRef = useRef(null);
   /* Handler -------------------------- */
-  const handleActive = (id) => {
+  const handleActive = (id: string) => {
     if (activeId === id) {
       setActiveId('');
     } else {

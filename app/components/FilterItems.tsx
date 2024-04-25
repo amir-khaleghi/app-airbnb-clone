@@ -6,7 +6,7 @@ const FilterItems = () => {
   // ─── Return ──────────────────────────────────────────────
 
   return (
-    <div className="flex items-center justify-center gap-10 mt-8  overflow-x-scroll no-scrollbar">
+    <div className="flex items-center justify-center gap-10 mt-8  overflow-x-scroll no-scrollbar ">
       {categoryItems.map((item) => {
         return (
           <FilterItem

@@ -9,7 +9,9 @@ export default function Home() {
     <main className="flex flex-col items-center justify-between p-x-24 gap-20">
       <Navbar />
       <Suspense>
-        <FilterItems />
+        <div className="w-full">
+          <FilterItems />
+        </div>
       </Suspense>
       <h1 className="text-3xl">Still Working On it... </h1>
       <Image

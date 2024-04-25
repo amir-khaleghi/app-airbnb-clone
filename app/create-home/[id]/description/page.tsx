@@ -1,6 +1,5 @@
 'use client';
 import FooterCreateHome from '@/app/components/FooterCreateHome';
-import SelectCategory from '@/app/components/SelectCategory';
 import { createCategoryPage } from '@/lib/actions';
 import { motion } from 'framer-motion';
 

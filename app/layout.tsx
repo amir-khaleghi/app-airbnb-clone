@@ -15,8 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className}font-circular `}>{children}</body>
+    <html
+      className=""
+      lang="en"
+    >
+      <body className={`${inter.className}  font-circular `}>{children}</body>
     </html>
   );
 }

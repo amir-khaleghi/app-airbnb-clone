@@ -12,7 +12,7 @@ const SelectCategory = () => {
   // ─── Return ──────────────────────────────────────────────
 
   return (
-    <div className="flex flex-wrap justify-center items-center  py-8 max-w-[600px] gap-2 ">
+    <div className="flex flex-wrap justify-center items-center  py-8 max-w-[600px] gap-2  overflow-x-hidden">
       <input
         type="hidden"
         name="categoryName"
