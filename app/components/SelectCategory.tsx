@@ -6,13 +6,13 @@ import { useState } from 'react';
 
 const SelectCategory = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
-    null
+    undefined
   );
 
   // ─── Return ──────────────────────────────────────────────
 
   return (
-    <div className="flex flex-wrap justify-center items-center  py-8 max-w-[600px] gap-2  overflow-x-hidden">
+    <div className="flex flex-wrap justify-center items-center  py-8 max-w-[600px] gap-2  ">
       <input
         type="hidden"
         name="categoryName"

@@ -1,12 +1,15 @@
 import NavbarCreateHome from '@/app/components/NavbarCreateHome';
+import { ReactQueryProvider } from '@/app/components/ReactQueryProvider';
 import { ReactNode } from 'react';
 
 const CreateHomeLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
-      <NavbarCreateHome />
-      <main>{children}</main>
-    </div>
+    <ReactQueryProvider>
+      <div>
+        <NavbarCreateHome />
+        <main>{children}</main>
+      </div>
+    </ReactQueryProvider>
   );
 };
 

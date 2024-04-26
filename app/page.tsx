@@ -6,10 +6,10 @@ import { Suspense } from 'react';
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between p-x-24 gap-20">
+    <main className="flex flex-col items-center p-x-24 gap-10">
       <Navbar />
       <Suspense>
-        <div className="w-full">
+        <div className="w-full ">
           <FilterItems />
         </div>
       </Suspense>

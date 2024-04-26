@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import { ReactQueryProvider } from './components/ReactQueryProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,7 +20,9 @@ export default function RootLayout({
       className=""
       lang="en"
     >
-      <body className={`${inter.className}  font-circular `}>{children}</body>
+      <body className={`${inter.className}  font-circular `}>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
+      </body>
     </html>
   );
 }

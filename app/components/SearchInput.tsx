@@ -21,7 +21,7 @@ const SearchInput = ({
 
   return (
     <div
-      className={`flex rounded-full  items-start h-14 flex-col hover:cursor-pointer p-2 border-r ${
+      className={`flex rounded-full duration-700 transition-all items-start h-14 flex-col hover:cursor-pointer p-2 border-r ${
         activeId === id.toString()
           ? 'bg-white shadow-lg z-20'
           : 'hover:bg-zinc-200'
@@ -31,10 +31,8 @@ const SearchInput = ({
         layout
         data-isopen={isActive}
         initial={{ borderRadius: 100 }}
-        className={`parent duration-500 text-sm px-4 h-full ${
-          activeId === id.toString()
-            ? 'lg:flex-[3.5] flex-[10]  '
-            : 'lg:flex[0.5] flex-[2]'
+        className={`parent duration-700 min-w-28 transition-all text-sm px-4 h-full ${
+          activeId === id.toString() ? ' min-w-40 ' : ''
         }`}
         onClick={() => handleActive(id.toString())}
       >
