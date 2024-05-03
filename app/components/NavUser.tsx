@@ -89,9 +89,17 @@ const NavUser = async () => {
             </DropdownMenuItem>
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem>
-              <form action={createHome}>
-                <button type="submit">Airbnb your home</button>
+            <DropdownMenuItem className="bg-red-200 ">
+              <form
+                className="w-full"
+                action={createHome}
+              >
+                <button
+                  className="w-full text-left"
+                  type="submit"
+                >
+                  Airbnb your home
+                </button>
               </form>
             </DropdownMenuItem>
             <DropdownMenuItem>
@@ -133,7 +141,9 @@ const NavUser = async () => {
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Gift cards</DropdownMenuItem>
-            <DropdownMenuItem>Airbnb your home</DropdownMenuItem>
+            <DropdownMenuItem>
+              <LoginLink className="w-full">Airbnb your home 👈</LoginLink>
+            </DropdownMenuItem>
             <DropdownMenuItem>Help center</DropdownMenuItem>
           </>
         )}

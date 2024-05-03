@@ -19,7 +19,7 @@ const FilterItems = () => {
           {categoryItems.map((item) => {
             return (
               <CarouselItem
-                className="basis-1/8  hover:scale-105 duration-300"
+                className="basis-1/8 sm:w-24 w-28 hover:scale-105 duration-300"
                 key={item.id}
               >
                 <FilterItem item={item} />

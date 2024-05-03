@@ -32,6 +32,8 @@ export async function createAirbnbHome({ userId }: { userId: string }) {
     return redirect(`/create-home/${data.id}/description`);
   } else if (!data.bathrooms) {
     return redirect(`/create-home/${data.id}/bathrooms`);
+  } else {
+    return redirect('/home-page');
   }
 }
 
@@ -51,6 +53,31 @@ export async function createCategoryPage(formData: FormData) {
       where: { id: homeId },
       data: {
         categoryName: categoryName,
+      },
+    });
+    return redirect(`/create-home/${homeId}/title`);
+  } else {
+    console.error(`Home with ID ${homeId} not found`);
+    return redirect('/');
+  }
+}
+
+//LINK - Add Title
+// ─── Add Title ──────────────────────────────── 🟩 ─
+export async function addTitle(formData: FormData) {
+  const title = formData.get('title') as string;
+  const homeId = formData.get('homeId') as string;
+
+  const existingHome = await db.home.findUnique({
+    where: { id: homeId },
+  });
+
+  if (existingHome) {
+    // If the record exists, update it
+    const data = await db.home.update({
+      where: { id: homeId },
+      data: {
+        title: title,
       },
     });
     return redirect(`/create-home/${homeId}/description`);
@@ -78,16 +105,16 @@ export async function addDescription(formData: FormData) {
         description: description,
       },
     });
-    return redirect(`/create-home/${homeId}/description`);
+    return redirect(`/create-home/${homeId}/bathrooms`);
   } else {
     console.error(`Home with ID ${homeId} not found`);
     return redirect('/');
   }
 }
-//LINK - Add Title
-// ─── Add Title ──────────────────────────────── 🟩 ─
-export async function addTitle(formData: FormData) {
-  const title = formData.get('title') as string;
+//LINK - Add bathrooms
+// ─── Add bathrooms ──────────────────────────────── 🟩 ─
+export async function addBathrooms(formData: FormData) {
+  const bathrooms = formData.get('bathroomsNumber') as string;
   const homeId = formData.get('homeId') as string;
 
   const existingHome = await db.home.findUnique({
@@ -99,7 +126,7 @@ export async function addTitle(formData: FormData) {
     const data = await db.home.update({
       where: { id: homeId },
       data: {
-        title: title,
+        bathrooms: bathrooms,
       },
     });
     return redirect(`/create-home/${homeId}/finish-setup`);

@@ -3,7 +3,7 @@ import Counter from '@/app/components/Counter';
 import FooterCreateHome from '@/app/components/FooterCreateHome';
 import NavbarCreateHome from '@/app/components/NavbarCreateHome';
 import { Textarea } from '@/components/ui/textarea';
-import { addDescription, createCategoryPage } from '@/lib/actions';
+import { addDescription } from '@/lib/actions';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
@@ -32,9 +32,8 @@ const Description = ({ params }: { params: { id: string } }) => {
           />
           <Textarea
             onChange={(e) => setDescription(e.target.value)}
-            name="title"
+            name="description"
             value={description}
-            maxLength={32}
             className="w-full  transition-all duration-300 text-lg p-4 my-4 h-36 border-black/50 focus-visible:ring-offset-0 focus-visible:ring-1 focus-visible:ring-black/80 focus-visible:h-32"
             placeholder="write here..."
           />

@@ -1,7 +1,7 @@
 'use client';
 import FooterCreateHome from '@/app/components/FooterCreateHome';
 import { Textarea } from '@/components/ui/textarea';
-import { createCategoryPage } from '@/lib/actions';
+import { addTitle } from '@/lib/actions';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -50,7 +50,7 @@ const Title = ({ params }: { params: { id: string } }) => {
             Short titles work best. Have fun with it – you can always change it
             later.
           </p>
-          <form action={createCategoryPage}>
+          <form action={addTitle}>
             <input
               type="hidden"
               name="homeId"

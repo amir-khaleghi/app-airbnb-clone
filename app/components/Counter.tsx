@@ -1,11 +1,8 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { Minus, Plus } from 'lucide-react';
-import { useState } from 'react';
 
-const Counter = () => {
-  const [amount, setAmount] = useState(0);
-
+const Counter = ({ amount, setAmount }) => {
   /* Handler ------------------------ */
   // increase
   function handleIncrease() {

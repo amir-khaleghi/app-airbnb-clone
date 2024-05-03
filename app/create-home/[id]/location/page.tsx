@@ -1,10 +1,9 @@
 'use client';
 import FooterCreateHome from '@/app/components/FooterCreateHome';
 import SelectCategory from '@/app/components/SelectCategory';
-import { createCategoryPage } from '@/lib/actions';
 import { motion } from 'framer-motion';
 
-const Description = ({ params }: { params: { id: string } }) => {
+const addLocation = ({ params }: { params: { id: string } }) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 100 }}
@@ -13,9 +12,9 @@ const Description = ({ params }: { params: { id: string } }) => {
       className=" flex flex-col items-center justify-center py-20"
     >
       <h1 className="text-3xl font-semibold  transition-colors tracking-tight text-center">
-        Write a description?
+        Choose the location.
       </h1>
-      <form action={createCategoryPage}>
+      <form>
         <input
           type="hidden"
           name="homeId"
@@ -27,5 +26,6 @@ const Description = ({ params }: { params: { id: string } }) => {
     </motion.div>
   );
 };
-export default Description;
+export default addLocation;
+
 // variants={fadeIn('right', 'spring', 2)}
