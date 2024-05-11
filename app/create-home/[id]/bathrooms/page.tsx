@@ -44,4 +44,3 @@ const Bathrooms = ({ params }: { params: { id: string } }) => {
   );
 };
 export default Bathrooms;
-// variants={fadeIn('right', 'spring', 2)}

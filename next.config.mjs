@@ -10,6 +10,10 @@ const nextConfig = {
       {
         hostname: 'a0.muscache.com',
       },
+
+      {
+        hostname: 'kutfdqxasgjxovjyrglc.supabase.co',
+      },
     ],
   },
 };

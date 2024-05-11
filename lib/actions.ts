@@ -2,6 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import db from './db';
+import { supabase } from './supabase';
 
 //LINK - Create Home
 // ─── Create Home ──────────────────────────────────── 🟩 ─
@@ -32,6 +33,10 @@ export async function createAirbnbHome({ userId }: { userId: string }) {
     return redirect(`/create-home/${data.id}/description`);
   } else if (!data.bathrooms) {
     return redirect(`/create-home/${data.id}/bathrooms`);
+  } else if (!data.photo) {
+    return redirect(`/create-home/${data.id}/photos`);
+  } else if (!data.location) {
+    return redirect(`/create-home/${data.id}/location`);
   } else {
     return redirect('/home-page');
   }
@@ -129,9 +134,50 @@ export async function addBathrooms(formData: FormData) {
         bathrooms: bathrooms,
       },
     });
-    return redirect(`/create-home/${homeId}/finish-setup`);
+    return redirect(`/create-home/${homeId}/photos`);
   } else {
     console.error(`Home with ID ${homeId} not found`);
     return redirect('/');
   }
+}
+//LINK - Add photos
+// ─── Add photos ──────────────────────────────── 🟩 ─
+export async function addPhotos(formData: FormData) {
+  const homeId = formData.get('homeId') as string;
+  const photoFile = formData.get('photos') as File;
+  const { data: photoData } = await supabase.storage
+    .from('airbnb-photos')
+    .upload(`${photoFile.name}-${new Date()}`, photoFile, {
+      cacheControl: '2592000',
+      contentType: 'image/png',
+    });
+
+  const data = await db.home.update({
+    where: {
+      id: homeId,
+    },
+    data: {
+      photo: photoData?.path,
+    },
+  });
+  return redirect(`/create-home/${homeId}/location`);
+}
+
+//LINK - Add Location
+// ─── Add Location ──────────────────────────────── 🟩 ─
+export async function addLocation(formData: FormData) {
+  const homeId = formData.get('homeId') as string;
+  const location = formData.get('location') as string;
+  const countryName = formData.get('countryName') as string;
+
+  const data = await db.home.update({
+    where: {
+      id: homeId,
+    },
+    data: {
+      location: location,
+      country: countryName,
+    },
+  });
+  return redirect(`/create-home/${homeId}/finish-setup`);
 }

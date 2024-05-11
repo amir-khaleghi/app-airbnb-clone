@@ -1,31 +1,25 @@
-'use client';
-import FooterCreateHome from '@/app/components/FooterCreateHome';
-import SelectCategory from '@/app/components/SelectCategory';
-import { motion } from 'framer-motion';
+import AddLocation from '@/app/components/AddLocation';
+import db from '@/lib/db';
+import { params } from '@/lib/types';
 
-const addLocation = ({ params }: { params: { id: string } }) => {
+const addLocationPage = async ({ params }: params) => {
+  /* Get Current Image -------------- */
+  const home = await db.home.findUnique({
+    where: { id: params.id },
+    select: { location: true },
+  });
+
+  const isAddress = home?.location ? true : false;
+
+  // ─── Return ──────────────────────────────────────────────
+
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 100 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }}
-      className=" flex flex-col items-center justify-center py-20"
-    >
-      <h1 className="text-3xl font-semibold  transition-colors tracking-tight text-center">
-        Choose the location.
-      </h1>
-      <form>
-        <input
-          type="hidden"
-          name="homeId"
-          value={params.id}
-        />
-
-        <FooterCreateHome />
-      </form>
-    </motion.div>
+    <div>
+      <AddLocation
+        isAddress={isAddress}
+        params={params}
+      />
+    </div>
   );
 };
-export default addLocation;
-
-// variants={fadeIn('right', 'spring', 2)}
+export default addLocationPage;
