@@ -1,8 +1,14 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import SubmitButton from './SubmitButton';
+import { useRouter } from 'next/navigation';
 
 const FooterCreateHome = () => {
+  const router = useRouter(); // Initialize the router
+  /* Handle Back -------------------- */
+  const handleBackNavigation = () => {
+    router.back(); // Navigate back to the previous URL
+  };
   // ─── Return ──────────────────────────────────────────────
 
   return (
@@ -11,8 +17,9 @@ const FooterCreateHome = () => {
         <Button
           className="underline underline-offset-4 text-lg"
           variant={'ghost'}
+          onClick={handleBackNavigation}
         >
-          <Link href={'/'}>Back</Link>
+          Back
         </Button>
 
         <SubmitButton

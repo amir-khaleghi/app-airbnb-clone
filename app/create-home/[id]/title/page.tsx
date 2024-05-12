@@ -17,7 +17,9 @@ const Title = ({ params }: { params: { id: string } }) => {
     /* Handler ------------------------ */
     const fetchData = async () => {
       axios
-        .get(`/api/home/${params.id}`)
+        .get(`/api/home/${params.id}`, {
+          params: { id: params.id },
+        })
         .then((response) => {
           setHome(response.data);
         })
@@ -26,8 +28,9 @@ const Title = ({ params }: { params: { id: string } }) => {
           console.error(error);
         });
     };
+
     fetchData();
-  }, []);
+  }, [params.id]);
 
   /* React Query --------------------- */
 
@@ -44,7 +47,7 @@ const Title = ({ params }: { params: { id: string } }) => {
       {home ? (
         <div className="flex flex-col p-8 ">
           <h1 className="text-3xl   transition-colors tracking-tight mb-2">
-            {`Now, let's give your ${home?.categoryName} a title`}
+            {`Now, let's give your ${home.categoryName} a title`}
           </h1>
           <p className=" text-zinc-500 opacity-80">
             Short titles work best. Have fun with it – you can always change it

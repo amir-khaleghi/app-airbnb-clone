@@ -1,9 +1,9 @@
 import db from '@/lib/db';
+import { revalidatePath } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
-  const searchParams = req.nextUrl.searchParams;
-  const query = searchParams.get('id')?.toString();
+  const query = req.nextUrl.searchParams.get('id')?.toString();
 
   try {
     const home = await db.home.findFirst({

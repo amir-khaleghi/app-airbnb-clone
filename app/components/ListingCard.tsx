@@ -1,26 +1,32 @@
-import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card';
+import { useCountries } from '@/hooks/useCountries';
 import Image from 'next/image';
 
 interface ListingCardProps {
   title: string;
   description: string;
-  categoryName: string;
-  country: string;
+  location: string;
   photo: string;
   price: number | string;
+  categoryName: string;
 }
 
+// ─── Comp ─────────────────────────────────────────── 🟩 ─
+
 const ListingCard = ({
+  location,
   title,
-  description,
   categoryName,
-  country,
+  description,
   photo,
   price,
 }: ListingCardProps) => {
+  const { getCountryByValue } = useCountries();
+  const country = getCountryByValue(location);
+  // ─── Return ──────────────────────────────────────────────
+
   return (
-    <div className="  flex gap-2 flex-col items-start justify-start w-64">
-      <div className="w-64 h-64 relative">
+    <div className="  flex gap-2 flex-col items-start justify-start ">
+      <div className="w-[250px] h-[250px] relative">
         <Image
           alt="home image"
           src={`https://kutfdqxasgjxovjyrglc.supabase.co/storage/v1/object/public/airbnb-photos/${photo}`}
@@ -29,11 +35,15 @@ const ListingCard = ({
         />
       </div>
       <div>
-        <p className="font-bold">{title}</p>
+        <p className="font-bold">
+          {country?.label} / {country?.region}
+        </p>
         <p>Category : {categoryName}</p>
-        {/* <p>Description: {description}</p> */}
+        <p className="text-muted-foreground w-64 text-sm line-clamp-2">
+          {description}
+        </p>
         <p>
-          price: {price} <br /> location:{country}
+          <span className="font-bold">${price}</span> night
         </p>
       </div>
     </div>

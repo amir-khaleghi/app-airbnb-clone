@@ -3,6 +3,7 @@ import FooterCreateHome from '@/app/components/FooterCreateHome';
 import { motion } from 'framer-motion';
 import { addPhotos } from '@/lib/actions';
 import Image from 'next/image';
+import { Card } from '@/components/ui/card';
 // import { useRouter } from 'next/navigation';
 
 interface AddPhotoProps {
@@ -55,23 +56,41 @@ const AddPhoto = ({ isHomePhoto, params, imageUrl }: AddPhotoProps) => {
               Add Photos of your Home
             </h1>
           )}
-          <input
-            type="hidden"
-            name="homeId"
-            value={params.id}
-          />
-          <input
-            required={!isHomePhoto}
-            type="file"
-            name="photos"
-          />
-          <Image
-            className=" rounded-2xl m-8"
-            src={`https://kutfdqxasgjxovjyrglc.supabase.co/storage/v1/object/public/airbnb-photos/${imageUrl}`}
-            alt="image"
-            width={200}
-            height={200}
-          />
+          <div className="mb-8">
+            <input
+              type="hidden"
+              name="homeId"
+              value={params.id}
+            />
+            <input
+              required={!isHomePhoto}
+              type="file"
+              name="photos"
+            />
+          </div>
+          {imageUrl ? (
+            <Card>
+              <Image
+                className=" rounded-2xl m-8"
+                src={`https://kutfdqxasgjxovjyrglc.supabase.co/storage/v1/object/public/airbnb-photos/${imageUrl}`}
+                alt="image"
+                width={200}
+                height={200}
+              />
+            </Card>
+          ) : (
+            <Card>
+              <Image
+                className=" rounded-2xl m-8"
+                src={
+                  'https://dchba.org/wp-content/uploads/2020/06/house-placeholder-300x180.png'
+                }
+                alt="image"
+                width={200}
+                height={200}
+              />
+            </Card>
+          )}
         </motion.div>
         <FooterCreateHome />
       </form>

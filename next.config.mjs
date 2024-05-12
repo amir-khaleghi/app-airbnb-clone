@@ -20,6 +20,10 @@ const nextConfig = {
         hostname: 'aws-0-eu-central-1.pooler.supabase.com',
         protocol: 'https',
       },
+      {
+        hostname: 'dchba.org',
+        protocol: 'https',
+      },
     ],
   },
 };
