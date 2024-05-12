@@ -9,10 +9,16 @@ const nextConfig = {
     remotePatterns: [
       {
         hostname: 'a0.muscache.com',
+        protocol: 'https',
       },
 
       {
         hostname: 'kutfdqxasgjxovjyrglc.supabase.co',
+        protocol: 'https',
+      },
+      {
+        hostname: 'aws-0-eu-central-1.pooler.supabase.com',
+        protocol: 'https',
       },
     ],
   },

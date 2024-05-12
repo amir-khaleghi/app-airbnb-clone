@@ -9,7 +9,7 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
 import { addLocation } from '@/lib/actions';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 
 // ─── Comp ─────────────────────────────────────────── 🟩 ─
 interface AddLocationProps {
@@ -37,36 +37,36 @@ const AddLocation = ({ params, isAddress }: AddLocationProps) => {
   const countries = getAllCountries();
   const countryName = getCountryByValue(location)?.label;
 
-  const router = useRouter();
+  // const router = useRouter();
 
   /* Handler -------------------------- */
   // Function to handle form submission
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
 
-    // If location exists, it means a photo is already uploaded
-    // So, redirect to the next step without uploading a new photo
-    if (isAddress) {
-      router.push(`/create-home/${params.id}/finish-setup`);
-      return;
-    }
+  //   // If location exists, it means a photo is already uploaded
+  //   // So, redirect to the next step without uploading a new photo
+  //   if (isAddress) {
+  //     router.push(`/create-home/${params.id}/finish-setup`);
+  //     return;
+  //   }
 
-    // If finish-setup doesn't exist, proceed with uploading the new photo
-    const formData = new FormData(event.currentTarget);
-    try {
-      await addLocation(formData);
-    } catch (error) {
-      console.error('Error adding location:', error);
-      // Handle error, e.g., display an error message to the user
-    }
-  };
+  //   // If finish-setup doesn't exist, proceed with uploading the new photo
+  //   const formData = new FormData(event.currentTarget);
+  //   try {
+  //     await addLocation(formData);
+  //   } catch (error) {
+  //     console.error('Error adding location:', error);
+  //     // Handle error, e.g., display an error message to the user
+  //   }
+  // };
 
   // ─── Return ──────────────────────────────────────────────
   return (
     <>
       <form
-        onSubmit={handleSubmit}
+        action={addLocation}
         className="overflow-hidden"
       >
         <input

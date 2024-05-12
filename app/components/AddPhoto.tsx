@@ -3,7 +3,7 @@ import FooterCreateHome from '@/app/components/FooterCreateHome';
 import { motion } from 'framer-motion';
 import { addPhotos } from '@/lib/actions';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 
 interface AddPhotoProps {
   params: { id: string };
@@ -11,35 +11,35 @@ interface AddPhotoProps {
   imageUrl: string | null;
 }
 const AddPhoto = ({ isHomePhoto, params, imageUrl }: AddPhotoProps) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   /* Handler -------------------------- */
   // Function to handle form submission
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
 
-    // If imageUrl exists, it means a photo is already uploaded
-    // So, redirect to the next step without uploading a new photo
-    if (imageUrl) {
-      router.push(`/create-home/${params.id}/location`);
-      return;
-    }
+  //   // If imageUrl exists, it means a photo is already uploaded
+  //   // So, redirect to the next step without uploading a new photo
+  //   if (imageUrl) {
+  //     router.push(`/create-home/${params.id}/location`);
+  //     return;
+  //   }
 
-    // If imageUrl doesn't exist, proceed with uploading the new photo
-    const formData = new FormData(event.currentTarget);
-    try {
-      await addPhotos(formData);
-    } catch (error) {
-      console.error('Error uploading photo:', error);
-      // Handle error, e.g., display an error message to the user
-    }
-  };
+  //   // If imageUrl doesn't exist, proceed with uploading the new photo
+  //   const formData = new FormData(event.currentTarget);
+  //   try {
+  //     await addPhotos(formData);
+  //   } catch (error) {
+  //     console.error('Error uploading photo:', error);
+  //     // Handle error, e.g., display an error message to the user
+  //   }
+  // };
 
   // ─── Return ──────────────────────────────────────────────
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form action={addPhotos}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

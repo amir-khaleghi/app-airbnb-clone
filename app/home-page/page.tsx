@@ -20,7 +20,7 @@ const homePage = async () => {
   return (
     <main className="flex flex-col items-center justify-center h-screen ">
       <h1 className="text-2xl p-2">Your Home</h1>
-      <div className="border rounded-xl flex-col flex p-4 shadow-lg m-4">
+      <div className="border rounded-xl flex-col flex p-4 shadow-lg m-4 gap-2">
         <div className="flex gap-2 items-center justify-between w-80">
           <Label>Your Email :</Label>
           {user?.email}
@@ -28,6 +28,10 @@ const homePage = async () => {
         <div className="flex gap-2 items-center justify-between w-80">
           <Label>Category Name :</Label>
           <div>{home?.categoryName}</div>
+        </div>
+        <div className="flex gap-2 items-center justify-between w-80">
+          <Label>Location :</Label>
+          <div>{home?.country}</div>
         </div>
         <Suspense fallback={<Skeleton />}>
           <Link href={`/create-home/${home?.id}/photos`}>

@@ -160,7 +160,11 @@ export async function addPhotos(formData: FormData) {
       photo: photoData?.path,
     },
   });
-  return redirect(`/create-home/${homeId}/location`);
+  if (!data.location) {
+    return redirect(`/create-home/${homeId}/location`);
+  } else {
+    return redirect(`/create-home/${homeId}/finish-setup`);
+  }
 }
 
 //LINK - Add Location
