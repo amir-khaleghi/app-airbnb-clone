@@ -1,10 +1,12 @@
 import Navbar from './components/Navbar';
 import FilterItems from './components/FilterItems';
 import { Suspense } from 'react';
-import { getHomeData } from '@/lib/utils';
+
 import ListingCard from './components/ListingCard';
 import SkeletonCard from './components/SkeletonCard';
 import Empty from './components/Empty';
+import { getFilteredHome } from '@/lib/utils';
+
 // ─── Home ─────────────────────────────────────────── 🟩 ─
 
 export default function Home({
@@ -33,7 +35,7 @@ export default function Home({
   );
 }
 
-// ─── Listcontainer ────────────────────────────────── 🟩 ─
+// ─── List container ────────────────────────────────── 🟩 ─
 
 async function ListContainer({
   searchParams,
@@ -42,14 +44,14 @@ async function ListContainer({
     filter?: string;
   };
 }) {
-  const data = await getHomeData({ searchParams: searchParams });
+  const data = await getFilteredHome({ searchParams: searchParams });
 
   return (
     <>
       {data.length === 0 ? (
         <Empty />
       ) : (
-        <div className="grid xl:grid-cols-4 justify-around	 md:grid-cols-2 sm:grid-cols-2 gap-8 m-8 mx-12">
+        <div className="grid xl:grid-cols-4 justify-around	 md:grid-cols-2 sm:grid-cols-2 gap-8 m-8 mx-12 pb-40">
           {data.map((item) => (
             <ListingCard
               key={item.id}
@@ -58,7 +60,7 @@ async function ListContainer({
               location={item.location as string}
               photo={item.photo as string}
               categoryName={item.categoryName as string}
-              price={item.price || 0}
+              price={item.price}
             />
           ))}
         </div>

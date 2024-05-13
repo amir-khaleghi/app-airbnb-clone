@@ -25,7 +25,7 @@ export const handleClickLocation = ({ boxRef, setActiveId }) => {
 
 /* Get data of homes ------------------- */
 
-export async function getHomeData({
+export async function getFilteredHome({
   searchParams,
 }: {
   searchParams?: {

@@ -3,17 +3,24 @@ import NavItems from './NavItems';
 import NavUser from './NavUser';
 import SearchBox from './SearchBox';
 import { TbBrandAirbnb } from 'react-icons/tb';
-
+import Image from 'next/image';
+import logo from '@/public/logo_.png';
 const Navbar = () => {
   // ─── Return ──────────────────────────────────────────────
 
   return (
     <nav className=" border-b w-full flex flex-col ">
-      <div className="flex items-center justify-between px-10 h-20">
+      <div className="flex items-center justify-between pr-4 sm:px-10 h-20">
         {/* Logo */}
         <Link href="/">
-          <div>
-            <TbBrandAirbnb className="text-red-500 text-4xl" />
+          <div className="p-2">
+            {/* <TbBrandAirbnb className="text-red-500 text-4xl" /> */}
+            <Image
+              alt="logo"
+              src={logo}
+              width={150}
+              height={150}
+            />
           </div>
         </Link>
         {/* links */}

@@ -53,7 +53,7 @@ const SearchBox = () => {
         })}
         {/* search */}
         <div
-          className={`rounded-full  duration-500 transition-all  bg-red-500 text-white w-14 h-14 flex gap-2 items-center justify-center hover:cursor-pointer ${
+          className={`rounded-full  duration-500 transition-all  bg-blue-500 text-white w-14 h-14 flex gap-2 items-center justify-center hover:cursor-pointer ${
             activeId && 'w-28'
           }`}
         >

@@ -33,6 +33,8 @@ export async function createAirbnbHome({ userId }: { userId: string }) {
     return redirect(`/create-home/${data.id}/description`);
   } else if (!data.bathrooms) {
     return redirect(`/create-home/${data.id}/bathrooms`);
+  } else if (!data.price) {
+    return redirect(`/create-home/${data.id}/price`);
   } else if (!data.photo) {
     return redirect(`/create-home/${data.id}/photos`);
   } else if (!data.location) {
@@ -132,6 +134,30 @@ export async function addBathrooms(formData: FormData) {
       where: { id: homeId },
       data: {
         bathrooms: bathrooms,
+      },
+    });
+    return redirect(`/create-home/${homeId}/price`);
+  } else {
+    console.error(`Home with ID ${homeId} not found`);
+    return redirect('/');
+  }
+}
+//LINK - Add addPrice
+// ─── Add addPrice ──────────────────────────────── 🟩 ─
+export async function addPrice(formData: FormData) {
+  const price = formData.get('price') as string;
+  const homeId = formData.get('homeId') as string;
+
+  const existingHome = await db.home.findUnique({
+    where: { id: homeId },
+  });
+
+  if (existingHome) {
+    // If the record exists, update it
+    const data = await db.home.update({
+      where: { id: homeId },
+      data: {
+        price: price,
       },
     });
     return redirect(`/create-home/${homeId}/photos`);

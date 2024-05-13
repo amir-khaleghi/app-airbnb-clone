@@ -1,4 +1,3 @@
-import { File } from 'lucide-react';
 import empty from '@/public/empty.svg';
 import Image from 'next/image';
 const Empty = () => {

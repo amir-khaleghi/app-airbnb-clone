@@ -36,7 +36,7 @@ const NavUser = async () => {
           <Menu className="w-5 h-5 sm:ml-4 m-4 " />
 
           <img
-            className="w-8 h-8 m-2 rounded-full hidden sm:block"
+            className="w-8 h-8 m-2 rounded-full "
             src={
               user?.picture ??
               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLNskLysx-bhYLWXuebdAbB4rjz9u8sNTkR4o4w484CkY8Fp0tdAfMbncOvg4I9eZMtpg&usqp=CAU'
@@ -89,7 +89,7 @@ const NavUser = async () => {
             </DropdownMenuItem>
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem className="bg-red-200 ">
+            <DropdownMenuItem className="bg-blue-200 ">
               <form
                 className="w-full"
                 action={createHome}
@@ -98,7 +98,7 @@ const NavUser = async () => {
                   className="w-full text-left"
                   type="submit"
                 >
-                  Airbnb your home
+                  Add your home
                 </button>
               </form>
             </DropdownMenuItem>
@@ -142,7 +142,7 @@ const NavUser = async () => {
             <DropdownMenuSeparator />
             <DropdownMenuItem>Gift cards</DropdownMenuItem>
             <DropdownMenuItem>
-              <LoginLink className="w-full">Airbnb your home 👈</LoginLink>
+              <LoginLink className="w-full">Add your home 👈</LoginLink>
             </DropdownMenuItem>
             <DropdownMenuItem>Help center</DropdownMenuItem>
           </>
