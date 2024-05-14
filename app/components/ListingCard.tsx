@@ -39,18 +39,28 @@ const ListingCard = async ({
       id: true,
     },
   });
+
   // ─── Return ──────────────────────────────────────────────
 
   return (
     <Link href={`/home-page/${home?.id}`}>
-      <div className="  flex gap-2 flex-col items-start justify-start ">
-        <div className="w-[250px] h-[250px] relative">
-          <Image
-            alt="home image"
-            src={`https://kutfdqxasgjxovjyrglc.supabase.co/storage/v1/object/public/airbnb-photos/${photo}`}
-            fill
-            className="rounded-xl "
-          />
+      <div className="  flex gap-2 flex-col items-start justify-start  hover:scale-105 transition-all duration-300">
+        <div className="w-[250px] h-[250px] relative ">
+          {photo !== null ? (
+            <Image
+              alt="home image"
+              src={`https://kutfdqxasgjxovjyrglc.supabase.co/storage/v1/object/public/airbnb-photos/${photo}`}
+              fill
+              className="rounded-xl  object-cover"
+            />
+          ) : (
+            <Image
+              alt="home image"
+              src={`https://reviveyouthandfamily.org/wp-content/uploads/2016/11/house-placeholder-768x545.jpg`}
+              fill
+              className="rounded-xl  object-cover"
+            />
+          )}
         </div>
         <div>
           <p className="font-bold">

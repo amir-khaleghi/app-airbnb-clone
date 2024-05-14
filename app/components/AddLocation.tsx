@@ -1,6 +1,7 @@
 'use client';
 import FooterCreateHome from '@/app/components/FooterCreateHome';
 import { params } from '@/lib/types';
+import * as React from 'react';
 
 import { motion } from 'framer-motion';
 import { useCountries } from '@/hooks/useCountries';
@@ -31,7 +32,8 @@ const AddLocation = ({ params, isAddress }: AddLocationProps) => {
 
   /* State ---------------------------- */
   const [location, setLocation] = useState('');
-
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState('');
   /* Hook --------------------------- */
   const { getAllCountries, getCountryByValue } = useCountries();
   const countries = getAllCountries();

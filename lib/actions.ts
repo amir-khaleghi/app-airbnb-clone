@@ -171,6 +171,10 @@ export async function addPrice(formData: FormData) {
 export async function addPhotos(formData: FormData) {
   const homeId = formData.get('homeId') as string;
   const photoFile = formData.get('photos') as File;
+  const existingHome = await db.home.findUnique({
+    where: { id: homeId },
+  });
+
   const { data: photoData } = await supabase.storage
     .from('airbnb-photos')
     .upload(`${photoFile.name}-${new Date()}`, photoFile, {
@@ -178,15 +182,18 @@ export async function addPhotos(formData: FormData) {
       contentType: 'image/png',
     });
 
-  const data = await db.home.update({
-    where: {
-      id: homeId,
-    },
-    data: {
-      photo: photoData?.path,
-    },
-  });
-  if (!data.location) {
+  if (photoFile) {
+    const data = await db.home.update({
+      where: {
+        id: homeId,
+      },
+      data: {
+        photo: photoData?.path,
+      },
+    });
+  }
+
+  if (!existingHome?.location) {
     return redirect(`/create-home/${homeId}/location`);
   } else {
     return redirect(`/create-home/${homeId}/finish-setup`);
@@ -209,5 +216,6 @@ export async function addLocation(formData: FormData) {
       country: countryName,
     },
   });
+
   return redirect(`/create-home/${homeId}/finish-setup`);
 }

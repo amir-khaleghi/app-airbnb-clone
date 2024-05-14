@@ -52,17 +52,20 @@ async function ListContainer({
         <Empty />
       ) : (
         <div className="grid xl:grid-cols-4 justify-around	 md:grid-cols-2 sm:grid-cols-2 gap-8 m-8 mx-12 pb-40">
-          {data.map((item) => (
-            <ListingCard
-              key={item.id}
-              title={item.title as string}
-              description={item.description as string}
-              location={item.location as string}
-              photo={item.photo as string}
-              categoryName={item.categoryName as string}
-              price={item.price}
-            />
-          ))}
+          {data.map((item) => {
+            // if (!item.photo) return;
+            return (
+              <ListingCard
+                key={item.id}
+                title={item.title as string}
+                description={item.description as string}
+                location={item.location as string}
+                photo={item.photo as string}
+                categoryName={item.categoryName as string}
+                price={item.price}
+              />
+            );
+          })}
         </div>
       )}
     </>

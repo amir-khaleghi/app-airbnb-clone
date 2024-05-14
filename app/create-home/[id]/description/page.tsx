@@ -34,7 +34,7 @@ const Description = ({ params }: { params: { id: string } }) => {
             onChange={(e) => setDescription(e.target.value)}
             name="description"
             value={description}
-            className="w-full  transition-all duration-300 text-lg p-4 my-4 h-36 border-black/50 focus-visible:ring-offset-0 focus-visible:ring-1 focus-visible:ring-black/80 focus-visible:h-32"
+            className="sm:w-[400px]  transition-all duration-300 text-lg p-4 my-4 h-80 border-black/50 focus-visible:ring-offset-0 focus-visible:ring-1 focus-visible:ring-black/80 focus-visible:h-40"
             placeholder="write here..."
           />
 

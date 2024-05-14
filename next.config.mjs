@@ -24,6 +24,10 @@ const nextConfig = {
         hostname: 'dchba.org',
         protocol: 'https',
       },
+      {
+        hostname: 'reviveyouthandfamily.org',
+        protocol: 'https',
+      },
     ],
   },
 };

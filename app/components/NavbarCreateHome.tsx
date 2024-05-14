@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { TbBrandAirbnb } from 'react-icons/tb';
-
+import Image from 'next/image';
+import logo from '@/public/logo_.png';
 const NavbarCreateHome = () => {
   // ─── Return ──────────────────────────────────────────────
 
@@ -10,7 +10,12 @@ const NavbarCreateHome = () => {
       <div className="flex items-center justify-between px-10 h-20">
         {/* Logo */}
         <Link href="/">
-          <TbBrandAirbnb className="text-black text-4xl" />
+          <Image
+            alt="logo"
+            src={logo}
+            width={150}
+            height={150}
+          />{' '}
         </Link>
         <div className="flex gap-4">
           <Button
