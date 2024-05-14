@@ -39,7 +39,7 @@ export async function GET() {
       }
     }
 
-    return NextResponse.redirect('https://app-airbnb-clone-amirdev.vercel.app');
+    return NextResponse.redirect('https://kashanemashane.vercel.app/');
   } catch (err) {
     console.error('Internal Server Error:', err);
     return NextResponse.json(

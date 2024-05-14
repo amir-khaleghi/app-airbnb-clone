@@ -2,7 +2,7 @@ import empty from '@/public/empty.svg';
 import Image from 'next/image';
 const Empty = () => {
   return (
-    <div className="flex w-[500px] h-[500px] flex-col items-center justify-center rounded-full shadow-lg border border-dashed p-8 text-center animate-in gap-4 fade-in-60 ">
+    <div className="flex w-80 sm:w-[500px] h-[500px] flex-col items-center justify-center rounded-full shadow-lg border border-dashed p-8 text-center animate-in gap-4 fade-in-60 ">
       <div>
         <Image
           src={empty}
