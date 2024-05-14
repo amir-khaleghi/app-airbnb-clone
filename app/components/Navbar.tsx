@@ -2,7 +2,6 @@ import Link from 'next/link';
 import NavItems from './NavItems';
 import NavUser from './NavUser';
 import SearchBox from './SearchBox';
-import { TbBrandAirbnb } from 'react-icons/tb';
 import Image from 'next/image';
 import logo from '@/public/logo_.png';
 const Navbar = () => {

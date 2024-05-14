@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '@/public/logo_.png';
+
 const NavbarCreateHome = () => {
   // ─── Return ──────────────────────────────────────────────
 
@@ -18,18 +19,22 @@ const NavbarCreateHome = () => {
           />{' '}
         </Link>
         <div className="flex gap-4">
-          <Button
-            className="rounded-3xl hover:border-black"
-            variant={'outline'}
-          >
-            Questions?
-          </Button>
-          <Button
-            className="rounded-3xl hover:border-black"
-            variant={'outline'}
-          >
-            Save & exit
-          </Button>
+          <Link>
+            <Button
+              className="rounded-3xl hover:border-black"
+              variant={'outline'}
+            >
+              Questions?
+            </Button>
+          </Link>
+          <Link href="/">
+            <Button
+              className="rounded-3xl hover:border-black"
+              variant={'outline'}
+            >
+              Save & exit
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>

@@ -42,7 +42,7 @@ const Title = ({ params }: { params: { id: string } }) => {
             name="title"
             value={title}
             maxLength={32}
-            className="w-full  transition-all duration-300 text-lg p-4 my-4 h-40 border-black/50 focus-visible:ring-offset-0 focus-visible:ring-1 focus-visible:ring-black/80 focus-visible:h-32"
+            className="w-full  transition-all duration-300 text-lg p-4 my-4 h-36 border-black/50 focus-visible:ring-offset-0 focus-visible:ring-1 focus-visible:ring-black/80 focus-visible:h-32"
             placeholder="write here..."
           />
           <p
