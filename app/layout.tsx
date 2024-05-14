@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description: 'A Platform to rent your home',
   keywords:
     'home rental, vacation rental, Airbnb clone, rent your home, property rental',
-  author: 'Your Name or Company Name',
   openGraph: {
     title: 'KashaneMashane',
     description: 'A Platform to rent your home',
@@ -38,6 +37,10 @@ export default function RootLayout({
       lang="en"
     >
       <head>
+        <link
+          rel="shortcut icon"
+          href="/app/favicon.ico"
+        />
         <meta charSet="UTF-8" />
         <meta
           name="viewport"
