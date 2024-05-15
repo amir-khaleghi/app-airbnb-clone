@@ -3,7 +3,7 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import { ReactQueryProvider } from './components/ReactQueryProvider';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter( { subsets: ['latin'] } );
 
 export const metadata: Metadata = {
   title: 'KashaneMashane',
@@ -26,16 +26,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function RootLayout( {
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}> ) {
   return (
     <html
       className=""
       lang="en"
     >
+
+
+
+
+      
       <head>
         <link
           rel="shortcut icon"

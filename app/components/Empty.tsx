@@ -11,6 +11,7 @@ const Empty = () => {
           height="300"
         />
       </div>
+
       <h1 className="text-xl text-center">
         Sorry! There is no home currently for this category.
       </h1>
