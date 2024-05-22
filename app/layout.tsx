@@ -36,11 +36,6 @@ export default function RootLayout( {
       className=""
       lang="en"
     >
-
-
-
-
-      
       <head>
         <link
           rel="shortcut icon"
